@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रकृति जैविक खेत (Prakriti Organic Farm)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="delivery-banner">
+        🚀 खुशखबरी! अब हमारी ताज़ा सब्जियां और उत्पाद सीधे आपके घर पर! (Home Delivery Available)
+    </div>
+
+    <header>
+        <div class="logo">🌿 प्रकृति जैविक खेत</div>
+        <nav>
+            <a href="#process">हमारी प्रक्रिया</a>
+            <a href="#visit">खेत भ्रमण (Visit Us)</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>शुद्धता का वादा, स्वास्थ्य का स्वाद!</h1>
+        <p>सौ प्रतिशत प्राकृतिक और रसायन-मुक्त जैविक उत्पाद</p>
+    </div>
+
+    <div class="container">
+
+        <section id="process">
+            <h2>हमारी जैविक प्रक्रिया (Our Organic Process)</h2>
+            <p>अगर आपको हमारे उत्पादों की शुद्धता पर कोई संदेह है, तो हम अपनी पूरी मेकिंग प्रोसेस को पारदर्शी रखते हैं। हमारी मुख्य प्रक्रियाएं इस प्रकार हैं:</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>1. प्राकृतिक खाद (Organic Fertilizer)</h3>
+                    <p>हम किसी भी प्रकार के रासायनिक यूरिया या कीटनाशकों का उपयोग नहीं करते हैं। हमारे खेत में केवल केंचुआ खाद (Vermicompost) और देसी गाय के गोबर से बनी खाद का उपयोग किया जाता है।</p>
+                </div>
+                <div class="card">
+                    <h3>2. पारंपरिक कीटनियंत्रण</h3>
+                    <p>फसलों को बीमारियों से बचाने के लिए नीम का तेल, छाछ (Buttermilk), और प्राकृतिक जड़ी-बूटियों के अर्क से तैयार घरेलू कीटनाशकों का छिड़काव किया जाता है।</p>
+                </div>
+                <div class="card">
+                    <h3>3. शुद्ध डेयरी उत्पाद</h3>
+                    <p>हमारे यहाँ गाय और भैंस के दूध को बिना किसी मिलावट या हार्मोनल इंजेक्शन के निकाला जाता है। पारम्परिक दही और बिलोना घी पूरी तरह से हस्तनिर्मित हैं।</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="visit">
+            <h2>खेत पर आएं और खुद परखें (Visit Our Farm)</h2>
+            
+            <div class="policy-box">
+                <h3>⚠️ महत्वपूर्ण सूचना: भ्रमण शुल्क क्यों लागू है?</h3>
+                <p>हम अपने ग्राहकों का स्वागत करते हैं कि वे स्वयं आकर हमारी कृषि गतिविधियों को देखें और परखें। <strong>परंतु, कृपया ध्यान दें कि खेत पर आने के लिए एक निश्चित एंट्री फीस (Ticket Charge) लागू है।</strong></p>
+                <p>यदि हम इसे पूरी तरह से मुफ्त रखेंगे, तो कृषि गतिविधियों में बाधा आएगी और हमारा खेत एक सार्वजनिक पार्क या पिकनिक स्पॉट बन जाएगा। पौधों की सुरक्षा और शांति बनाए रखने के लिए यह शुल्क अनिवार्य है। विवरण नीचे फॉर्म में देखें।</p>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <h3>भ्रमण के लिए स्लॉट बुक करें</h3>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">आपका नाम (Full Name):</label>
+                            <input type="text" id="name" required placeholder="अपना नाम दर्ज करें">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">भ्रमण की तारीख (Date of Visit):</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="visitors">आगंतुकों की संख्या (No. of Visitors):</label>
+                            <select id="visitors" onchange="calculateFee()">
+                                <option value="1">1 व्यक्ति (₹150)</option>
+                                <option value="2">2 व्यक्ति (₹300)</option>
+                                <option value="3">3 व्यक्ति (₹450)</option>
+                                <option value="4">4 व्यक्ति (₹600)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="price-text">कुल अनुमानित शुल्क: <span id="totalPrice">₹150</span></p>
+                        </div>
+                        <button type="submit">अग्रिम पास (Pass) बुक करें</button>
+                    </form>
+                </div>
+
+                <div>
+                    <h3>खेत का पता और रूट (How to Reach)</h3>
+                    <p><strong>📍 पता:</strong> निकट रेलवे स्टेशन, रामनगर (उत्तराखंड)</p>
+                    <p><strong>🚉 कैसे पहुंचें:</strong> रामनगर रेलवे स्टेशन से बाहर निकलकर आप मुख्य मार्ग से ई-रिक्शा या ऑटो ले सकते हैं। हमारा फार्म स्टेशन से मात्र 1.5 किलोमीटर की दूरी पर स्थित है।</p>
+                    <div class="map-placeholder">
+                        🗺️ [शिक्षक के प्रदर्शन के लिए मॉक गूगल मैप लोकेशन]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="modal-overlay" id="overlay"></div>
+    <div class="modal" id="successModal">
+        <h3>🎉 बुकिंग अनुरोध सफल!</h3>
+        <p id="modalText"></p>
+        <button onclick="closeModal()">ठीक है</button>
+    </div>
+
+    <footer>
+        <p>© 2026 प्रकृति जैविक खेत | किसान - राम सिंह | संपर्क: 98765 43210</p>
+    </footer>
+
+    <script>
+        function calculateFee() {
+            const visitors = document.getElementById('visitors').value;
+            const pricePerPerson = 150;
+            document.getElementById('totalPrice').innerText = '₹' + (visitors * pricePerPerson);
+        }
+
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const total = document.getElementById('totalPrice').innerText;
+
+            document.getElementById('modalText').innerHTML = `नमस्ते <b>${name}</b>, आपका फार्म विजिट पास <b>${date}</b> के लिए ड्राफ्ट कर लिया गया है। <br><br> कृषि नियमों के अनुसार <b>${total}</b> का एंट्री पास काउंटर पर देय होगा।`;
+            
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('successModal').style.display = 'block';
+        });
+
+        function closeModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('successModal').style.display = 'none';
+            document.getElementById('bookingForm').reset();
+            document.getElementById('totalPrice').innerText = '₹150';
+        }
+    </script>
+</body>
+</html>
