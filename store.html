@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रकृति स्टोर (Prakriti Farm Store)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Store-specific layouts extending our design */
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .product-card h3 {
+            margin: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        /* Stock Status Labels */
+        .status {
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .in-stock {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .restock-soon {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+
+        .out-of-stock {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+
+        /* Cart Summary Floating Box */
+        .cart-summary {
+            background: #e8f5e9;
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+            text-align: right;
+        }
+
+        .cart-summary h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .store-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        .store-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .store-btn.order-now {
+            background-color: var(--accent);
+            width: auto;
+            padding: 0.75rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .store-btn.order-now:hover {
+            background-color: #e65100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="delivery-banner">
+        🚀 आपके द्वार पर डिलीवरी! अपनी मनपसंद चीजें चुनें और ऑर्डर करें।
+    </div>
+
+    <header>
+        <div class="logo">🌿 प्रकृति जैविक स्टोर</div>
+        <nav>
+            <a href="index.html">मुख्य पृष्ठ (Home)</a>
+            <a href="index.html#process">हमारी प्रक्रिया</a>
+            <a href="index.html#visit">खेत भ्रमण</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>ताज़ा फ़ार्म उत्पाद (Our Farm Products)</h2>
+        <p>सीधे खेत से बिना रसायनों के तैयार की गई शुद्ध सामग्री। अपनी आवश्यकता अनुसार सामग्री चुनें:</p>
+
+        <div class="store-grid">
+            
+            <div class="product-card">
+                <div>
+                    <span class="status in-stock">● उपलब्ध है (In Stock)</span>
+                    <h3>ताज़ा ब्रोकली (Broccoli)</h3>
+                    <p class="price">₹120 / किलो</p>
+                </div>
+                <button class="store-btn" onclick="addToCart('ताज़ा ब्रोकली', 120)">ऑर्डर में जोड़ें</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="status restock-soon">⏳ 2 दिनों में स्टॉक आएगा (Restocking in 2 Days)</span>
+                    <h3>जैविक टमाटर (Organic Tomatoes)</h3>
+                    <p class="price">₹60 / किलो</p>
+                </div>
+                <button class="store-btn" disabled>कृपया प्रतीक्षा करें</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="status in-stock">● उपलब्ध है (In Stock)</span>
+                    <h3>शुद्ध गाय का दूध (Cow Milk)</h3>
+                    <p class="price">₹70 / लीटर</p>
+                </div>
+                <button class="store-btn" onclick="addToCart('शुद्ध गाय का दूध', 70)">ऑर्डर में जोड़ें</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="status restock-soon">⏳ 5 दिनों में उपलब्ध होगा (Available in 5 Days)</span>
+                    <h3>देसी घी - बिलोना विधि (Desi Ghee)</h3>
+                    <p class="price">₹850 / लीटर</p>
+                </div>
+                <button class="store-btn" disabled>चेक बैक करें</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="status in-stock">● उपलब्ध है (In Stock)</span>
+                    <h3>हरी मिर्च व पालक कॉम्बो</h3>
+                    <p class="price">₹45 / पैकेट</p>
+                </div>
+                <button class="store-btn" onclick="addToCart('हरी मिर्च व पालक कॉम्बो', 45)">ऑर्डर में जोड़ें</button>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="status out-of-stock">❌ स्टॉक समाप्त - कुछ दिन प्रतीक्षा करें</span>
+                    <h3>पहाड़ी राजमा दाल (Pulses)</h3>
+                    <p class="price">₹160 / किलो</p>
+                </div>
+                <button class="store-btn" disabled>अभी उपलब्ध नहीं</button>
+            </div>
+
+        </div>
+
+        <div class="cart-summary">
+            <h3>🛒 आपका ऑर्डर (Your Order Summary)</h3>
+            <p id="cartItems">कोई आइटम नहीं चुना गया</p>
+            <hr style="border: 0; border-top: 1px solid #ccc;">
+            <p style="font-size: 1.3rem; font-weight: bold;">कुल मूल्य: <span id="cartTotal">₹0</span></p>
+            <button class="store-btn order-now" onclick="placeFinalOrder()">अभी होम डिलीवरी ऑर्डर करें</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="overlay"></div>
+    <div class="modal" id="successModal">
+        <h3>🎉 ऑर्डर प्राप्त हुआ!</h3>
+        <p id="modalText"></p>
+        <button onclick="closeModal()">ठीक है</button>
+    </div>
+
+    <footer>
+        <p>© 2026 प्रकृति जैविक खेत | किसान - राम सिंह | संपर्क: 98765 43210</p>
+    </footer>
+
+    <script>
+        let currentCart = [];
+        let totalAmount = 0;
+
+        function addToCart(itemName, itemPrice) {
+            currentCart.push(itemName);
+            totalAmount += itemPrice;
+            
+            // Render selection to view box
+            document.getElementById('cartItems').innerText = "चयनित उत्पाद: " + currentCart.join(', ');
+            document.getElementById('cartTotal').innerText = '₹' + totalAmount;
+        }
+
+        function placeFinalOrder() {
+            if (currentCart.length === 0) {
+                alert("कृपया ऑर्डर करने के लिए पहले उपलब्ध वस्तुओं को जोड़ें!");
+                return;
+            }
+            
+            document.getElementById('modalText').innerHTML = `आपका ऑर्डर सफलतापूर्वक दर्ज कर लिया गया है। <br><br> <b>कुल राशि: ₹${totalAmount}</b> (कैश ऑन डिलीवरी)। <br>ताज़ा सामान कल सुबह आपके घर पहुंचा दिया जाएगा!`;
+            
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('successModal').style.display = 'none';
+            // Clear cart
+            currentCart = [];
+            totalAmount = 0;
+            document.getElementById('cartItems').innerText = "कोई आइटम नहीं चुना गया";
+            document.getElementById('cartTotal').innerText = '₹0';
+        }
+    </script>
+</body>
+</html>
